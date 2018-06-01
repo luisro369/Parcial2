@@ -20,7 +20,7 @@ public class GameInfo extends AppCompatActivity implements Generals.OnFragmentIn
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_info);
-
+        //======================todo sobre el tab====================
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //========================================
@@ -54,6 +54,9 @@ public class GameInfo extends AppCompatActivity implements Generals.OnFragmentIn
 
 
     }
+
+
+
 
     @Override
     public void onFragmentInteraction(Uri uri) {
