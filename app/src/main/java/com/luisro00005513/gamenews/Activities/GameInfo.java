@@ -26,8 +26,8 @@ public class GameInfo extends AppCompatActivity implements Generals.OnFragmentIn
         //========================================
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tabLayout);
         tabLayout.addTab(tabLayout.newTab().setText("Generals"));
-        tabLayout.addTab(tabLayout.newTab().setText("Images"));
         tabLayout.addTab(tabLayout.newTab().setText("Top players"));
+        tabLayout.addTab(tabLayout.newTab().setText("Images"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager)findViewById(R.id.viewPager);
