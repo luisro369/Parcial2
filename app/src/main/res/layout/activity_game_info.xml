@@ -6,6 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     tools:context="com.luisro00005513.gamenews.Activities.GameInfo"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
     >
 
     <!-- aca esta lo que permite cambiar entre fragments -->
@@ -40,6 +42,8 @@
         android:layout_height="fill_parent"
         >
     </android.support.v4.view.ViewPager>
+
+
 
 
 </LinearLayout>

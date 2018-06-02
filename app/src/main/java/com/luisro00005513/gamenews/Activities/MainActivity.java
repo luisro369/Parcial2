@@ -1,43 +1,43 @@
 package com.luisro00005513.gamenews.Activities;
 
 import android.content.Intent;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
+import android.support.annotation.DrawableRes;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 
+import com.luisro00005513.gamenews.Adapters.NewsAdapter;
+import com.luisro00005513.gamenews.Classes.News;
 import com.luisro00005513.gamenews.R;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    //=========declarando variables para news=============
+    RecyclerView recyclerView;
+    ArrayList<News> news_list = new ArrayList<>();
+    //ImageView image2;
+    //ImageView image3;
 
-    public Button boton;
+    //=========declarando variables para news(fin)========
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //==========================================
 
-        boton = (Button)findViewById(R.id.boton);
-        boton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), GameInfo.class);
-                startActivity(intent);
-            }
-        });
-
-        //==========================================
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -49,7 +49,41 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //=========codigo para news=============
+        recyclerView = (RecyclerView)findViewById(R.id.recycler_news);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        fillList();
+        NewsAdapter newsAdapter = new NewsAdapter(news_list);
+        recyclerView.setAdapter(newsAdapter);
+        //=========codigo para news(fin)========
+
     }
+
+    private void fillList(){
+        news_list.add(new News("God of war", "Atreo es loki!!!!"));
+        news_list.add(new News("Gta", "michael es gay"));
+        news_list.add(new News("The legend of zelda", "link no es zelda :("));
+    }//fillList
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public void onBackPressed() {
@@ -82,11 +116,16 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        //===========aca se le da funcionalidad a los botones del slide
         int id = item.getItemId();
 
-        if (id == R.id.nav_news) {
+        if (id == R.id.nav_news) {//para el boton news
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
             // Handle the camera action
-        } else if (id == R.id.nav_games) {
+        } else if (id == R.id.nav_games) {//para los juegos
+            Intent intent = new Intent(getApplicationContext(),GameInfo.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_settings) {
 
@@ -98,4 +137,13 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
+
+
+
+
+
+
 }
