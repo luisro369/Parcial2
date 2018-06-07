@@ -22,23 +22,25 @@
 
 
         <TextView
+            android:id="@+id/news_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:textStyle="italic"
+            android:textAlignment="center"
+            android:textSize="17sp"
+            android:text="Nombre del juego"/>
+
+        <TextView
             android:id="@+id/news_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
-            android:textStyle="bold"
+            android:textStyle="italic"
             android:textAlignment="center"
             android:text="Este es el titulo del juego"
-            android:textSize="20sp"/>
+            android:textSize="14sp"/>
 
-        <TextView
-            android:id="@+id/news_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="2dp"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:text="Esta es una descripcion del juego, tiene que estar detallada"/>
 
     </LinearLayout>
 

@@ -13,14 +13,14 @@ import com.luisro00005513.gamenews.R;
 
 class NewsAdapterViewHolder extends RecyclerView.ViewHolder {
 
-    TextView description;
     TextView title;
     ImageView image;
+    TextView game;
 
     public NewsAdapterViewHolder(View itemView) {
         super(itemView);
 
-        description = (TextView) itemView.findViewById(R.id.news_description);
+        game = (TextView) itemView.findViewById(R.id.news_game);
         title = (TextView) itemView.findViewById(R.id.news_title);
         image = (ImageView) itemView.findViewById(R.id.news_image);
 

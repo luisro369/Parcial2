@@ -37,8 +37,9 @@ public class News {
     private String description;
 
 
-        public News(String title) {
+        public News(String title, String game) {
             this.title = title;
+            this.game = game;
         }
 
         public News(String id, String title, String body, String game, String createdDate, Integer v, String coverImage, String description) {

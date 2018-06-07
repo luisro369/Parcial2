@@ -23,6 +23,6 @@ public interface NewsService {
 
 
     @GET("/news")
-    public Call<List<News>> getTitles(@Query("title") String title);
+    public Call<List<News>> getTitles(@Query("title") String title, @Query("game") String game);
 
 }

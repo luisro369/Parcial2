@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity
     ArrayList<News> news_list = new ArrayList<>();
     //TextView titulo;
     String titulo;
+    String game;
     private static String token;
     public static final String BASE_URL = "https://gamenewsuca.herokuapp.com";
     //--------------codigo para retrofit2---------------------
@@ -111,9 +112,9 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void fillList(){
-        news_list.add(new News(titulo));
-        news_list.add(new News("Gta"));
-        news_list.add(new News("The legend of zelda"));
+        news_list.add(new News(titulo,game));
+        news_list.add(new News("Gta",""));
+        news_list.add(new News("The legend of zelda",""));
     }//fillList
 
 
@@ -145,12 +146,13 @@ public class MainActivity extends AppCompatActivity
     }//getToken
     //==============aca creo el metodo que llame en la interfaz(NewsService) para GET========================
     private void getTitles(){
-        Call<List<News>> call = newsService.getTitles("title");
+        Call<List<News>> call = newsService.getTitles("title","game");
         call.enqueue(new Callback<List<News>>() {
             @Override
             public void onResponse(Call<List<News>> call, Response<List<News>> response) {
                 Toast.makeText(MainActivity.this,"Conexion exitosa",Toast.LENGTH_SHORT).show();
                 titulo = response.body().get(3).getTitle();
+                game = response.body().get(3).getGame();
                 CreandoCardViews();
             }
 

@@ -35,7 +35,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapterViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull NewsAdapterViewHolder holder, int position){
-        holder.description.setText(news_list.get(position).getDescription());
+        holder.game.setText(news_list.get(position).getGame());
         holder.title.setText(news_list.get(position).getTitle());
     }
 
