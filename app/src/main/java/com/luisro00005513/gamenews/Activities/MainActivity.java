@@ -16,20 +16,60 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.luisro00005513.gamenews.Adapters.NewsAdapter;
+import com.luisro00005513.gamenews.Classes.Login;
 import com.luisro00005513.gamenews.Classes.News;
+import com.luisro00005513.gamenews.Classes.NewsService;
 import com.luisro00005513.gamenews.R;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static android.os.SystemClock.sleep;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     //=========declarando variables para news=============
     RecyclerView recyclerView;
     ArrayList<News> news_list = new ArrayList<>();
-    //ImageView image2;
-    //ImageView image3;
+    //TextView titulo;
+    String titulo;
+    private static String token;
+    public static final String BASE_URL = "https://gamenewsuca.herokuapp.com";
+    //--------------codigo para retrofit2---------------------
+    OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
+        @Override
+        public okhttp3.Response intercept(Chain chain) throws IOException {
+            Request newRequest = chain.request().newBuilder()
+                    .addHeader("Authorization","Bearer " + token)
+                    .build();
+            return chain.proceed(newRequest);
+        }
+    }).build();
+
+
+    Retrofit.Builder buider = new Retrofit.Builder()
+            .client(client)
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create());
+    Retrofit retrofit = buider.build();
+    NewsService newsService = retrofit.create(NewsService.class);
+
+    //--------------codigo para retrofit2---------------------
 
     //=========declarando variables para news(fin)========
 
@@ -50,22 +90,78 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //=========codigo para news=============
+
+        //titulo = (TextView)findViewById(R.id.news_title);
+        //retrofit
+        getToken();
+        //creando CardViews
+
+
+
+    }
+
+    private void CreandoCardViews(){
+        //=========codigo para CardView de news=============
         recyclerView = (RecyclerView)findViewById(R.id.recycler_news);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         fillList();
         NewsAdapter newsAdapter = new NewsAdapter(news_list);
         recyclerView.setAdapter(newsAdapter);
-        //=========codigo para news(fin)========
-
+        //=========codigo para CardView de news(fin)========
     }
 
     private void fillList(){
-        news_list.add(new News("God of war", "Atreo es loki!!!!"));
-        news_list.add(new News("Gta", "michael es gay"));
-        news_list.add(new News("The legend of zelda", "link no es zelda :("));
+        news_list.add(new News(titulo));
+        news_list.add(new News("Gta"));
+        news_list.add(new News("The legend of zelda"));
     }//fillList
 
+
+    //==============aca creo el metodo que llame en la interfaz(NewsService) para POST========================
+    private void getToken(){
+        Login login = new Login("username","password");
+        Call<Login> call = newsService.getToken(login);
+        call.enqueue(new Callback<Login>() {
+            @Override
+            public void onResponse(Call<Login> call, Response<Login> response) {
+                if(response.isSuccessful()){
+                    token = response.body().getToken();
+                    Toast.makeText(MainActivity.this,"El token es: "+response.body().getToken(),Toast.LENGTH_SHORT).show();
+                    //=====si tuvimos exito y generamos un token manda a llama lo demas========
+                    //getListaNoticias(token);
+                    getTitles();
+                }
+                else{
+                    Toast.makeText(MainActivity.this,"Fallo al agarrar token",Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Login> call, Throwable t) {
+                Toast.makeText(MainActivity.this,"Fallo de conexion",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }//getToken
+    //==============aca creo el metodo que llame en la interfaz(NewsService) para GET========================
+    private void getTitles(){
+        Call<List<News>> call = newsService.getTitles("title");
+        call.enqueue(new Callback<List<News>>() {
+            @Override
+            public void onResponse(Call<List<News>> call, Response<List<News>> response) {
+                Toast.makeText(MainActivity.this,"Conexion exitosa",Toast.LENGTH_SHORT).show();
+                titulo = response.body().get(3).getTitle();
+                CreandoCardViews();
+            }
+
+            @Override
+            public void onFailure(Call<List<News>> call, Throwable t) {
+                Toast.makeText(MainActivity.this,"fallo de recoleccion de datos",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+    }//getTitles
 
 
 

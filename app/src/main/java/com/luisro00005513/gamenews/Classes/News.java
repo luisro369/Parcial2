@@ -1,41 +1,64 @@
 package com.luisro00005513.gamenews.Classes;
 
-import android.media.Image;
-import android.widget.ImageView;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by luisro on 6/1/18.
- */
+
+
+//===============java generado en www.jsonschema2pojo.org===============================
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class News {
 
-    String game;
-    String title;
-    String description;
-    String body;
-    ImageView coverImage;
+    @SerializedName("_id")
+    @Expose
+    private String id;
+    @SerializedName("title")
+    @Expose
+    private String title;
+    @SerializedName("body")
+    @Expose
+    private String body;
+    @SerializedName("game")
+    @Expose
+    private String game;
+    @SerializedName("created_date")
+    @Expose
+    private String createdDate;
+    @SerializedName("__v")
+    @Expose
+    private Integer v;
+    @SerializedName("coverImage")
+    @Expose
+    private String coverImage;
+    @SerializedName("description")
+    @Expose
+    private String description;
 
-    //----------------constructor para teaser de noticia---------------
-    public News(String title, String description) {
-        this.title = title;
-        this.description = description;
+
+        public News(String title) {
+            this.title = title;
+        }
+
+        public News(String id, String title, String body, String game, String createdDate, Integer v, String coverImage, String description) {
+            super();
+            this.id = id;
+            this.title = title;
+            this.body = body;
+            this.game = game;
+            this.createdDate = createdDate;
+            this.v = v;
+            this.coverImage = coverImage;
+            this.description = description;
+        }
+
+    public String getId() {
+        return id;
     }
 
-    //-----------------constructor para full noticia------------
-    public News(String game, String title, String description, String body, ImageView coverImage) {
-        this.game = game;
-        this.title = title;
-        this.description = description;
-        this.body = body;
-        this.coverImage = coverImage;
-    }
-
-    public String getGame() {
-        return game;
-    }
-
-    public void setGame(String game) {
-        this.game = game;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -46,14 +69,6 @@ public class News {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getBody() {
         return body;
     }
@@ -62,11 +77,44 @@ public class News {
         this.body = body;
     }
 
-    public ImageView getCoverImage() {
+    public String getGame() {
+        return game;
+    }
+
+    public void setGame(String game) {
+        this.game = game;
+    }
+
+    public String getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(String createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Integer getV() {
+        return v;
+    }
+
+    public void setV(Integer v) {
+        this.v = v;
+    }
+
+    public String getCoverImage() {
         return coverImage;
     }
 
-    public void setCoverImage(ImageView coverImage) {
+    public void setCoverImage(String coverImage) {
         this.coverImage = coverImage;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 }

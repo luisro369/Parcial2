@@ -54,6 +54,7 @@ public class GameInfo extends AppCompatActivity implements Generals.OnFragmentIn
 
             }
         });
+        //======================todo sobre el tab(fin)=================
     }
 
     
