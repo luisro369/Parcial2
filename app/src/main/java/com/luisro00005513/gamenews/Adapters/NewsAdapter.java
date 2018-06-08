@@ -1,5 +1,6 @@
 package com.luisro00005513.gamenews.Adapters;
 
+import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,8 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.luisro00005513.gamenews.Classes.ImagenesParaCardView;
 import com.luisro00005513.gamenews.Classes.News;
 import com.luisro00005513.gamenews.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -19,9 +22,12 @@ import java.util.ArrayList;
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapterViewHolder>{
 
     ArrayList<News> news_list;
+    private Context context;
+    private ArrayList<ImagenesParaCardView> imagenesParaCardViews;
 
-    public NewsAdapter (ArrayList<News> news_list){
+    public NewsAdapter (Context context, ArrayList<News> news_list){
         this.news_list = news_list;
+        this.context = context;
     }
 
 
@@ -37,6 +43,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapterViewHolder>{
     public void onBindViewHolder(@NonNull NewsAdapterViewHolder holder, int position){
         holder.game.setText(news_list.get(position).getGame());
         holder.title.setText(news_list.get(position).getTitle());
+        //holder.image.setImageURI();
+        Picasso.with(context).load(imagenesParaCardViews.get(position).getImagenUrl()).into(holder.image);
     }
 
     @Override
