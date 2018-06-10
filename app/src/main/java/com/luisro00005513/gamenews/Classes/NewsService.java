@@ -23,6 +23,9 @@ public interface NewsService {
 
 
     @GET("/news")
-    public Call<List<News>> getTitles(@Query("title") String title, @Query("game") String game);
+    public Call<List<News>> getTitles(@Query("title") String title, @Query("game") String game,
+                                      @Query("_id") String id, @Query("body") String body,
+                                      @Query("created_date") String date, @Query("coverImage") String image,
+                                      @Query("description") String description);
 
 }

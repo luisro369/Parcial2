@@ -47,9 +47,8 @@ public class MainActivity extends AppCompatActivity
     //=========declarando variables para news=============
     RecyclerView recyclerView;
     ArrayList<News> news_list = new ArrayList<>();
+    ArrayList<News> lista_Completa = new ArrayList<>();
     //TextView titulo;
-    List<String> titulo;
-    List<String> game;
     String imagen;
     private static String token;
     public static final String BASE_URL = "https://gamenewsuca.herokuapp.com";
@@ -109,17 +108,11 @@ public class MainActivity extends AppCompatActivity
         //=========codigo para CardView de news=============
         recyclerView = (RecyclerView)findViewById(R.id.recycler_news);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        //fillList();
         NewsAdapter newsAdapter = new NewsAdapter(getApplicationContext(),news_list);//modifique esto
         recyclerView.setAdapter(newsAdapter);
         //=========codigo para CardView de news(fin)========
     }
 
-    private void fillList(List<String> titulo,List<String> game){
-        for(int i = 0; i < 4; i++) {
-            news_list.add(new News(titulo.get(i), game.get(i)));
-        }
-    }//fillList
 
 
     //==============aca creo el metodo que llame en la interfaz(NewsService) para POST========================
@@ -150,16 +143,26 @@ public class MainActivity extends AppCompatActivity
     }//getToken
     //==============aca creo el metodo que llame en la interfaz(NewsService) para GET========================
     private void getTitles(){
-        Call<List<News>> call = newsService.getTitles("title","game");
+        Call<List<News>> call = newsService.getTitles("title","game","_id","body", "date",
+                "coverImage", "description");
         call.enqueue(new Callback<List<News>>() {
             @Override
             public void onResponse(Call<List<News>> call, Response<List<News>> response) {
                 Toast.makeText(MainActivity.this,"Conexion exitosa",Toast.LENGTH_SHORT).show();
-                for(int i = 0; i < 4; i++) {
-                    titulo.add(response.body().get(i).getTitle());
-                    game.add(response.body().get(i).getGame());
+                for(int i = 0; i < 10; i++) {
+                    //Noticia completa
+                    String id = response.body().get(i).getId();
+                    String imagen = response.body().get(i).getCoverImage();
+                    String body = response.body().get(i).getBody();
+                    String date = response.body().get(i).getCreatedDate();
+                    String description = response.body().get(i).getDescription();
+                    //cardviews
+                    String titulo = response.body().get(i).getTitle();
+                    String game = response.body().get(i).getGame();
+                    news_list.add(new News(titulo,game));//arreglo para cardviews
+                    lista_Completa.add(new News(id,titulo,body,game,date,imagen,description));
                 }
-                fillList(titulo,game);
+
                 //imagen = response.body().get(3).getCoverImage();
                 //ImagenesParaCardView imagenesParaCardView = new ImagenesParaCardView();
                 //imagenesParaCardView.setImagenUrl(imagen);

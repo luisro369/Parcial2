@@ -48,14 +48,13 @@ public class News {
             this.coverImage = coverImage;
         }
 
-        public News(String id, String title, String body, String game, String createdDate, Integer v, String coverImage, String description) {
+        public News(String id, String title, String body, String game, String createdDate, String coverImage, String description) {
             super();
             this.id = id;
             this.title = title;
             this.body = body;
             this.game = game;
             this.createdDate = createdDate;
-            this.v = v;
             this.coverImage = coverImage;
             this.description = description;
         }
