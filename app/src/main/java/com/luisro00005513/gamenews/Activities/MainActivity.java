@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity
     RecyclerView recyclerView;
     ArrayList<News> news_list = new ArrayList<>();
     //TextView titulo;
-    String titulo;
-    String game;
+    List<String> titulo;
+    List<String> game;
     String imagen;
     private static String token;
     public static final String BASE_URL = "https://gamenewsuca.herokuapp.com";
@@ -109,16 +109,16 @@ public class MainActivity extends AppCompatActivity
         //=========codigo para CardView de news=============
         recyclerView = (RecyclerView)findViewById(R.id.recycler_news);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        fillList();
+        //fillList();
         NewsAdapter newsAdapter = new NewsAdapter(getApplicationContext(),news_list);//modifique esto
         recyclerView.setAdapter(newsAdapter);
         //=========codigo para CardView de news(fin)========
     }
 
-    private void fillList(){
-        news_list.add(new News(titulo,game));
-        news_list.add(new News("Gta",""));
-        news_list.add(new News("The legend of zelda",""));
+    private void fillList(List<String> titulo,List<String> game){
+        for(int i = 0; i < 4; i++) {
+            news_list.add(new News(titulo.get(i), game.get(i)));
+        }
     }//fillList
 
 
@@ -155,8 +155,11 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onResponse(Call<List<News>> call, Response<List<News>> response) {
                 Toast.makeText(MainActivity.this,"Conexion exitosa",Toast.LENGTH_SHORT).show();
-                titulo = response.body().get(3).getTitle();
-                game = response.body().get(3).getGame();
+                for(int i = 0; i < 4; i++) {
+                    titulo.add(response.body().get(i).getTitle());
+                    game.add(response.body().get(i).getGame());
+                }
+                fillList(titulo,game);
                 //imagen = response.body().get(3).getCoverImage();
                 //ImagenesParaCardView imagenesParaCardView = new ImagenesParaCardView();
                 //imagenesParaCardView.setImagenUrl(imagen);
