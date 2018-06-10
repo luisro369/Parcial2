@@ -116,9 +116,9 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void fillList(){
-        news_list.add(new News(titulo,game,imagen));
-        news_list.add(new News("Gta","",""));
-        news_list.add(new News("The legend of zelda","",""));
+        news_list.add(new News(titulo,game));
+        news_list.add(new News("Gta",""));
+        news_list.add(new News("The legend of zelda",""));
     }//fillList
 
 
@@ -157,9 +157,9 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(MainActivity.this,"Conexion exitosa",Toast.LENGTH_SHORT).show();
                 titulo = response.body().get(3).getTitle();
                 game = response.body().get(3).getGame();
-                imagen = response.body().get(3).getCoverImage();
-                ImagenesParaCardView imagenesParaCardView = new ImagenesParaCardView();
-                imagenesParaCardView.setImagenUrl(imagen);
+                //imagen = response.body().get(3).getCoverImage();
+                //ImagenesParaCardView imagenesParaCardView = new ImagenesParaCardView();
+                //imagenesParaCardView.setImagenUrl(imagen);
                 CreandoCardViews();
             }
 

@@ -10,7 +10,7 @@
     tools:openDrawer="start"
     >
 
-    <!-- aca esta lo que permite cambiar entre fragments -->
+    <!-- aca esta lo que permite cambiar entre fragments-->
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -21,7 +21,10 @@
         android:minHeight="?attr/actionBarSize"
         >
 
+
     </android.support.v7.widget.Toolbar>
+
+
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabLayout"

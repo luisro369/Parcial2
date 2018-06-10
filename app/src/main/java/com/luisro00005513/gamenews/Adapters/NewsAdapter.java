@@ -44,7 +44,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapterViewHolder>{
         holder.game.setText(news_list.get(position).getGame());
         holder.title.setText(news_list.get(position).getTitle());
         //holder.image.setImageURI();
-        Picasso.with(context).load(imagenesParaCardViews.get(position).getImagenUrl()).into(holder.image);
+        //Picasso.with(context).load(imagenesParaCardViews.get(position).getImagenUrl()).into(holder.image);
     }
 
     @Override

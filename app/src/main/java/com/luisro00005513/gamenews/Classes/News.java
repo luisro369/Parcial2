@@ -36,6 +36,11 @@ public class News {
     @Expose
     private String description;
 
+        public News(String title, String game){
+            this.title = title;
+            this.game = game;
+        }
+
 
         public News(String title, String game, String coverImage) {
             this.title = title;
