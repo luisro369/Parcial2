@@ -12,6 +12,7 @@
     <!--ACA esta todo el contenido dentro del main -->
 
     <android.support.v7.widget.RecyclerView
+        android:clickable="true"
         android:layout_margin="4dp"
         android:id="@+id/recycler_news"
         android:layout_width="match_parent"

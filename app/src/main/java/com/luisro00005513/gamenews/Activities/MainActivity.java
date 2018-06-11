@@ -14,6 +14,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -43,7 +44,8 @@ import static android.os.SystemClock.sleep;
 
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements
+        NavigationView.OnNavigationItemSelectedListener {
     //=========declarando variables para news=============
     RecyclerView recyclerView;
     ArrayList<News> news_list = new ArrayList<>();
@@ -98,7 +100,7 @@ public class MainActivity extends AppCompatActivity
         //titulo = (TextView)findViewById(R.id.news_title);
         //retrofit
         getToken();
-        //creando CardViews
+        //aca va el codigo de cuando des click a cardview
 
 
 
@@ -159,8 +161,8 @@ public class MainActivity extends AppCompatActivity
                     //cardviews
                     String titulo = response.body().get(i).getTitle();
                     String game = response.body().get(i).getGame();
-                    news_list.add(new News(titulo,game));//arreglo para cardviews
-                    lista_Completa.add(new News(id,titulo,body,game,date,imagen,description));
+                    news_list.add(new News(titulo,game,imagen));//arreglo para cardviews
+                    lista_Completa.add(new News(id,titulo,body,game,date,imagen,description));//arreglo para noticia
                 }
 
                 //imagen = response.body().get(3).getCoverImage();
@@ -248,13 +250,5 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
-
-
-
-
-
-
 
 }

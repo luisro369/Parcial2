@@ -35,7 +35,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapterViewHolder>{
     @Override
     public NewsAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
         View news_view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_news, parent, false);
-        return new NewsAdapterViewHolder(news_view);
+        return new NewsAdapterViewHolder(news_view,news_list,context);
     }
 
 
@@ -44,7 +44,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapterViewHolder>{
         holder.game.setText(news_list.get(position).getGame());
         holder.title.setText(news_list.get(position).getTitle());
         //holder.image.setImageURI();
-        //Picasso.with(context).load(imagenesParaCardViews.get(position).getImagenUrl()).into(holder.image);
+        Picasso.with(context).load(news_list.get(position).getCoverImage()).into(holder.images);
     }
 
     @Override

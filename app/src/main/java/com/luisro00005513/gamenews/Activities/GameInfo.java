@@ -23,6 +23,22 @@ public class GameInfo extends AppCompatActivity implements Generals.OnFragmentIn
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_info);
+        //=========codigo para llenar fragment generals==================
+        Bundle bundle = new Bundle();
+        bundle.putString("id",getIntent().getStringExtra("id"));
+        bundle.putString("imagen",getIntent().getStringExtra("imagen"));
+        bundle.putString("title",getIntent().getStringExtra("title"));
+        bundle.putString("body",getIntent().getStringExtra("body"));
+        bundle.putString("date",getIntent().getStringExtra("date"));
+        bundle.putString("description",getIntent().getStringExtra("description"));
+        bundle.putString("game",getIntent().getStringExtra("game"));
+        Generals generals = new Generals();
+        generals.setArguments(bundle);
+        //=========codigo para llenar fragment generals(fin)==================
+
+
+
+
         //======================todo sobre el tab====================
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
