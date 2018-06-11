@@ -1,10 +1,7 @@
 package com.luisro00005513.gamenews.Activities;
 
 import android.content.Intent;
-import android.media.Image;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.DrawableRes;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
@@ -14,14 +11,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.luisro00005513.gamenews.Adapters.NewsAdapter;
-import com.luisro00005513.gamenews.Classes.ImagenesParaCardView;
 import com.luisro00005513.gamenews.Classes.Login;
 import com.luisro00005513.gamenews.Classes.News;
 import com.luisro00005513.gamenews.Classes.NewsService;
@@ -39,8 +31,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import static android.os.SystemClock.sleep;
 
 
 public class MainActivity extends AppCompatActivity
