@@ -7,13 +7,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.luisro00005513.gamenews.R;
+import com.squareup.picasso.Picasso;
 
 
 public class Generals extends Fragment {
-    TextView id,imagen,title,body,date,description,game;
+    TextView idTv,titleTv,bodyTv,dateTv,descriptionTv,gameTv;
+    ImageView imagenV;
+    String imagen;
 
     public Generals() {
         // Required empty public constructor
@@ -30,18 +34,29 @@ public class Generals extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_generals,container,false);
-        //llenando con datos de bundle de actividad Gameinfo
-        game = (TextView)getActivity().findViewById(R.id.fragment_game);
-        description = (TextView)getActivity().findViewById(R.id.fragment_description);
-        body = (TextView)getActivity().findViewById(R.id.fragment_body);
+        //llenando con datos de bundle de viewHolder
+        gameTv = (TextView)view.findViewById(R.id.fragment_game);
+        descriptionTv = (TextView)view.findViewById(R.id.fragment_description);
+        bodyTv = (TextView)view.findViewById(R.id.fragment_body);
+        imagenV = (ImageView)view.findViewById(R.id.fragment_image);
 
-        game.setText("HOLLAAAAAAAAAA");
-        /*
-        game.setText(getArguments().getString("game"));
-        description.setText(getArguments().getString("description"));
-        body.setText(getArguments().getString("body"));
-        */
-        return view;
+        if(savedInstanceState != null){
+            //aca seteo lo recibido en bundle al fragmento
+            gameTv.setText(getArguments().getString("game"));
+            descriptionTv.setText(getArguments().getString("description"));
+            bodyTv.setText(getArguments().getString("body"));
+            imagen = getArguments().getString("imagen");
+            Picasso.with(getContext()).load(imagen.toString()).into(imagenV);
+            return view;
+        }
+
+        else{
+            gameTv.setText("lamentablemente usted no puede pasar datos desde fragment");
+            descriptionTv.setText("da lastima");
+            bodyTv.setText("suicidese");
+            return view;
+
+        }
 
     }
 

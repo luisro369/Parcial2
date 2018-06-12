@@ -2,6 +2,8 @@ package com.luisro00005513.gamenews.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
@@ -13,10 +15,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.luisro00005513.gamenews.Adapters.FragmentPagerAdapter;
 import com.luisro00005513.gamenews.Adapters.NewsAdapter;
 import com.luisro00005513.gamenews.Classes.Login;
 import com.luisro00005513.gamenews.Classes.News;
 import com.luisro00005513.gamenews.Classes.NewsService;
+import com.luisro00005513.gamenews.Fragments.Generals;
 import com.luisro00005513.gamenews.R;
 
 import java.io.IOException;
@@ -55,15 +59,25 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        //=========codigo para llenar fragment generals==================
+        Bundle bundle = new Bundle();
+        bundle.putString("id",getIntent().getStringExtra("id"));
+        bundle.putString("imagen",getIntent().getStringExtra("imagen"));
+        bundle.putString("title",getIntent().getStringExtra("title"));
+        bundle.putString("body",getIntent().getStringExtra("body"));
+        bundle.putString("date",getIntent().getStringExtra("date"));
+        bundle.putString("description",getIntent().getStringExtra("description"));
+        bundle.putString("game",getIntent().getStringExtra("game"));
+        Generals generals = new Generals();
+        generals.setArguments(bundle);
+        //=========codigo para llenar fragment generals(fin)==================
 
-        //titulo = (TextView)findViewById(R.id.news_title);
-        //retrofit
-
-        //aca va el codigo de cuando des click a cardview
 
 
 
-    }
+
+
+    }//on create
 
 
 
@@ -124,8 +138,6 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
             // Handle the camera action
         } else if (id == R.id.nav_games) {//para los juegos
-            Intent intent = new Intent(getApplicationContext(),GameInfo.class);
-            startActivity(intent);
 
         } else if (id == R.id.nav_settings) {
 

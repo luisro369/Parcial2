@@ -83,6 +83,14 @@ public class FragmentNews extends Fragment {
         return view;
     }
 
+
+
+
+
+
+
+
+
     private void CreandoCardViews(){
         //=========codigo para CardView de news=============
         recyclerView = (RecyclerView)getView().findViewById(R.id.recycler_news);
