@@ -16,7 +16,7 @@ import com.luisro00005513.gamenews.Adapters.FragmentPagerAdapter;
 import com.luisro00005513.gamenews.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Aca va a estar toda la conexion con retrofit y el xml de este fragmento va a ser el default
  */
 public class FragmentContainer extends Fragment {
 

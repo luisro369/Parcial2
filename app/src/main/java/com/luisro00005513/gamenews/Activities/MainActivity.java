@@ -20,6 +20,7 @@ import com.luisro00005513.gamenews.Adapters.NewsAdapter;
 import com.luisro00005513.gamenews.Classes.Login;
 import com.luisro00005513.gamenews.Classes.News;
 import com.luisro00005513.gamenews.Classes.NewsService;
+import com.luisro00005513.gamenews.Fragments.FragmentContainer;
 import com.luisro00005513.gamenews.Fragments.Generals;
 import com.luisro00005513.gamenews.R;
 
@@ -59,19 +60,21 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
+        /*
         //=========codigo para llenar fragment generals==================
         Bundle bundle = new Bundle();
-        bundle.putString("id",getIntent().getStringExtra("id"));
-        bundle.putString("imagen",getIntent().getStringExtra("imagen"));
-        bundle.putString("title",getIntent().getStringExtra("title"));
-        bundle.putString("body",getIntent().getStringExtra("body"));
-        bundle.putString("date",getIntent().getStringExtra("date"));
-        bundle.putString("description",getIntent().getStringExtra("description"));
-        bundle.putString("game",getIntent().getStringExtra("game"));
-        Generals generals = new Generals();
+        FragmentContainer generals = new FragmentContainer();
+        bundle.putString("id",generals.getArguments().getString("id"));
+        bundle.putString("imagen",generals.getArguments().getString("imagen"));
+        bundle.putString("title",generals.getArguments().getString("title"));
+        bundle.putString("body",generals.getArguments().getString("body"));
+        bundle.putString("date",generals.getArguments().getString("date"));
+        bundle.putString("description",generals.getArguments().getString("description"));
+        bundle.putString("game",generals.getArguments().getString("game"));
         generals.setArguments(bundle);
         //=========codigo para llenar fragment generals(fin)==================
-
+        */
 
 
 

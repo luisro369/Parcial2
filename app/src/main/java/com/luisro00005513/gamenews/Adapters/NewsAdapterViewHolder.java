@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -51,6 +52,7 @@ class NewsAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     public void onClick(View v) {
         int position = getAdapterPosition();
         News news = this.lista_completa.get(position);
+
         FragmentTransaction fr = ((FragmentActivity)context).getSupportFragmentManager().beginTransaction();
         fr.addToBackStack(null);
         fr.replace(R.id.fragment_padre,new FragmentContainer());
@@ -65,6 +67,8 @@ class NewsAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnCl
         Generals generals = new Generals();
         generals.setArguments(bundle);
         fr.commit();
+
+
         /*
         Intent intent = new Intent(this.context, GameInfo.class);
         intent.putExtra("id",news.getId());
