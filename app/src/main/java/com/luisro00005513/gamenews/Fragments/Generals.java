@@ -46,7 +46,7 @@ public class Generals extends Fragment {
             descriptionTv.setText(getArguments().getString("description"));
             bodyTv.setText(getArguments().getString("body"));
             imagen = getArguments().getString("imagen");
-            Picasso.with(getContext()).load(imagen.toString()).into(imagenV);
+            Picasso.with(getContext()).load(imagen).into(imagenV);
             return view;
         }
 

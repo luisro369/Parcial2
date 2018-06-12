@@ -150,9 +150,6 @@ public class FragmentNews extends Fragment {
                     lista_Completa.add(new News(id,titulo,body,game,date,imagen,description));//arreglo para noticia
                 }
 
-                //imagen = response.body().get(3).getCoverImage();
-                //ImagenesParaCardView imagenesParaCardView = new ImagenesParaCardView();
-                //imagenesParaCardView.setImagenUrl(imagen);
                 CreandoCardViews();
             }
 
