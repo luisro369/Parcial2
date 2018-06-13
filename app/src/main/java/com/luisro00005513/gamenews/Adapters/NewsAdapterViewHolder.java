@@ -4,11 +4,13 @@ import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.luisro00005513.gamenews.Classes.News;
+import com.luisro00005513.gamenews.Classes.Players;
 import com.luisro00005513.gamenews.Fragments.FragmentContainer;
 import com.luisro00005513.gamenews.R;
 
@@ -54,7 +56,8 @@ class NewsAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     public void onClick(View v) {
         int position = getAdapterPosition();
         News news = this.lista_completa.get(position);
-
+        //al dar click setear variables globales con los  valores recogidos
+        //------------generals---------------
         gameStk = news.getGame();
         imagenStk = news.getCoverImage();
         desciptionStk = news.getDescription();

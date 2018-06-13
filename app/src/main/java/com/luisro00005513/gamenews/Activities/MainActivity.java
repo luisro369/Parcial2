@@ -11,15 +11,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.luisro00005513.gamenews.Classes.Players;
 import com.luisro00005513.gamenews.R;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity
         implements
         NavigationView.OnNavigationItemSelectedListener {
 
+    //--------------variables globales entre clases(esto sustituye al bundle)------
+    //---------------Generals--------------------
     public static String gameStk,desciptionStk,bodyStk,imagenStk;
+    //---------------TopPlayers--------------------
+    public static ArrayList<Players> players_list = new ArrayList<>();
+    public static String avatarSTK,idStk,nameStk,biografiaStk,gameStkP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
