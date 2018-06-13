@@ -3,6 +3,7 @@ package com.luisro00005513.gamenews.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -21,6 +22,7 @@ import com.luisro00005513.gamenews.Classes.Login;
 import com.luisro00005513.gamenews.Classes.News;
 import com.luisro00005513.gamenews.Classes.NewsService;
 import com.luisro00005513.gamenews.Fragments.FragmentContainer;
+import com.luisro00005513.gamenews.Fragments.FragmentNews;
 import com.luisro00005513.gamenews.Fragments.Generals;
 import com.luisro00005513.gamenews.R;
 
@@ -123,8 +125,15 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_news) {//para el boton news
-            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-            startActivity(intent);
+            Fragment Fnews = getSupportFragmentManager().findFragmentById(R.id.fragment_padre);
+            if(Fnews != null){
+                //codigo para inflar el fragment ya creado (backsatack)
+                Fnews.getFragmentManager().popBackStackImmediate();
+            }
+            else {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
             // Handle the camera action
         } else if (id == R.id.nav_games) {//para los juegos
 
