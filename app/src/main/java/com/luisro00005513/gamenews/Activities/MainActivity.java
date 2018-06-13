@@ -2,11 +2,7 @@ package com.luisro00005513.gamenews.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -14,30 +10,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import com.luisro00005513.gamenews.Adapters.FragmentPagerAdapter;
-import com.luisro00005513.gamenews.Adapters.NewsAdapter;
-import com.luisro00005513.gamenews.Classes.Login;
-import com.luisro00005513.gamenews.Classes.News;
-import com.luisro00005513.gamenews.Classes.NewsService;
-import com.luisro00005513.gamenews.Fragments.FragmentContainer;
-import com.luisro00005513.gamenews.Fragments.FragmentNews;
-import com.luisro00005513.gamenews.Fragments.Generals;
 import com.luisro00005513.gamenews.R;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class MainActivity extends AppCompatActivity
@@ -100,22 +75,12 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-/*
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
-        return super.onOptionsItemSelected(item);
-    }
-    */
+
+
+
+    //===============aca decido que hace cada boton del drawer==============
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

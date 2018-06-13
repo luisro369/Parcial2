@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.luisro00005513.gamenews.Activities.MainActivity;
 import com.luisro00005513.gamenews.Adapters.NewsAdapter;
 import com.luisro00005513.gamenews.Classes.Login;
 import com.luisro00005513.gamenews.Classes.News;

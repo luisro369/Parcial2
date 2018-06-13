@@ -6,8 +6,6 @@ import com.google.gson.annotations.SerializedName;
 
 
 //===============java generado en www.jsonschema2pojo.org===============================
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
 public class News {
 
