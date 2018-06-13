@@ -13,6 +13,11 @@ import android.widget.TextView;
 import com.luisro00005513.gamenews.R;
 import com.squareup.picasso.Picasso;
 
+import static com.luisro00005513.gamenews.Activities.MainActivity.bodyStk;
+import static com.luisro00005513.gamenews.Activities.MainActivity.desciptionStk;
+import static com.luisro00005513.gamenews.Activities.MainActivity.gameStk;
+import static com.luisro00005513.gamenews.Activities.MainActivity.imagenStk;
+
 
 public class Generals extends Fragment {
     TextView idTv,titleTv,bodyTv,dateTv,descriptionTv,gameTv;
@@ -40,24 +45,13 @@ public class Generals extends Fragment {
         bodyTv = (TextView)view.findViewById(R.id.fragment_body);
         imagenV = (ImageView)view.findViewById(R.id.fragment_image);
 
-        if(savedInstanceState != null){
-            //aca seteo lo recibido en bundle al fragmento
-            gameTv.setText(getArguments().getString("game"));
-            descriptionTv.setText(getArguments().getString("description"));
-            bodyTv.setText(getArguments().getString("body"));
-            imagen = getArguments().getString("imagen");
-            Picasso.with(getContext()).load(imagen).into(imagenV);
-            return view;
-        }
+        gameTv.setText(gameStk);
+        descriptionTv.setText(desciptionStk);
+        bodyTv.setText(bodyStk);
+        imagen = imagenStk;
+        Picasso.with(getContext()).load(imagen).into(imagenV);
 
-        else{
-            gameTv.setText("lamentablemente usted no puede pasar datos desde fragment");
-            descriptionTv.setText("da lastima");
-            bodyTv.setText("suicidese");
-            return view;
-
-        }
-
+        return view;
     }
 
     public interface OnFragmentInteractionListener {

@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity
         implements
         NavigationView.OnNavigationItemSelectedListener {
 
+    public static String gameStk,desciptionStk,bodyStk,imagenStk;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,21 +61,6 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
-        /*
-        //=========codigo para llenar fragment generals==================
-        Bundle bundle = new Bundle();
-        FragmentContainer generals = new FragmentContainer();
-        bundle.putString("id",generals.getArguments().getString("id"));
-        bundle.putString("imagen",generals.getArguments().getString("imagen"));
-        bundle.putString("title",generals.getArguments().getString("title"));
-        bundle.putString("body",generals.getArguments().getString("body"));
-        bundle.putString("date",generals.getArguments().getString("date"));
-        bundle.putString("description",generals.getArguments().getString("description"));
-        bundle.putString("game",generals.getArguments().getString("game"));
-        generals.setArguments(bundle);
-        //=========codigo para llenar fragment generals(fin)==================
-        */
 
 
 

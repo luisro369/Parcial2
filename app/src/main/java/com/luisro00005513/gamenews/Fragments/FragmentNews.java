@@ -37,7 +37,7 @@ public class FragmentNews extends Fragment {
     //=========declarando variables para news=============
     RecyclerView recyclerView;
     ArrayList<News> news_list = new ArrayList<>();
-    ArrayList<News> lista_Completa = new ArrayList<>();
+    //ArrayList<News> lista_Completa = new ArrayList<>();
     //TextView titulo;
     String imagen;
     private static String token;
@@ -146,8 +146,8 @@ public class FragmentNews extends Fragment {
                     //cardviews
                     String titulo = response.body().get(i).getTitle();
                     String game = response.body().get(i).getGame();
-                    news_list.add(new News(titulo,game,imagen));//arreglo para cardviews
-                    lista_Completa.add(new News(id,titulo,body,game,date,imagen,description));//arreglo para noticia
+                    //news_list.add(new News(titulo,game,imagen));//arreglo para cardviews
+                    news_list.add(new News(id,titulo,body,game,date,imagen,description));//arreglo para noticia
                 }
 
                 CreandoCardViews();

@@ -17,6 +17,12 @@ import com.luisro00005513.gamenews.R;
 
 import java.util.ArrayList;
 
+import static android.os.SystemClock.sleep;
+import static com.luisro00005513.gamenews.Activities.MainActivity.bodyStk;
+import static com.luisro00005513.gamenews.Activities.MainActivity.desciptionStk;
+import static com.luisro00005513.gamenews.Activities.MainActivity.gameStk;
+import static com.luisro00005513.gamenews.Activities.MainActivity.imagenStk;
+
 /**
  * Created by luisro on 6/1/18.
  */
@@ -53,33 +59,18 @@ class NewsAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnCl
         int position = getAdapterPosition();
         News news = this.lista_completa.get(position);
 
+        gameStk = news.getGame();
+        imagenStk = news.getCoverImage();
+        desciptionStk = news.getDescription();
+        bodyStk = news.getBody();
+
         FragmentTransaction fr = ((FragmentActivity)context).getSupportFragmentManager().beginTransaction();
         fr.addToBackStack(null);
         fr.replace(R.id.fragment_padre,new FragmentContainer());
-        Bundle bundle = new Bundle();
-        bundle.putString("id",news.getId());
-        bundle.putString("imagen",news.getCoverImage());
-        bundle.putString("title",news.getTitle());
-        bundle.putString("body",news.getBody());
-        bundle.putString("date",news.getCreatedDate());
-        bundle.putString("description",news.getDescription());
-        bundle.putString("game",news.getGame());
-        Generals generals = new Generals();
-        generals.setArguments(bundle);
+
         fr.commit();
 
 
-        /*
-        Intent intent = new Intent(this.context, GameInfo.class);
-        intent.putExtra("id",news.getId());
-        intent.putExtra("imagen",news.getCoverImage());
-        intent.putExtra("title",news.getTitle());
-        intent.putExtra("body",news.getBody());
-        intent.putExtra("date",news.getCreatedDate());
-        intent.putExtra("description",news.getDescription());
-        intent.putExtra("game",news.getGame());
-        this.context.startActivity(intent);
-        */
 
     }
 }

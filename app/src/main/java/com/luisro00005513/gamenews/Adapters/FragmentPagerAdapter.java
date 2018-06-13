@@ -15,6 +15,7 @@ public class FragmentPagerAdapter extends android.support.v4.app.FragmentPagerAd
 
     int numTabs;
 
+
     public FragmentPagerAdapter(FragmentManager fm, int numeroDeTabs) {
         super(fm);
         this.numTabs = numeroDeTabs;
@@ -28,7 +29,7 @@ public class FragmentPagerAdapter extends android.support.v4.app.FragmentPagerAd
                 return tab1;
             case 1:
                 TopPlayers tab2 = new TopPlayers();
-                return  tab2;
+                return tab2;
             case 2:
                 Images tab3 = new Images();
                 return tab3;
@@ -36,6 +37,8 @@ public class FragmentPagerAdapter extends android.support.v4.app.FragmentPagerAd
                 return null;
         }//switch
     }
+
+
 
     @Override
     public int getCount() {
