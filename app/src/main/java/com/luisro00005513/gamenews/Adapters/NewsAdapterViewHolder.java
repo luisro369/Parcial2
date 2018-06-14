@@ -27,7 +27,6 @@ import static com.luisro00005513.gamenews.Activities.MainActivity.imagenStk;
 
 class NewsAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    android.support.v4.app.Fragment fragmentoViejo;
     TextView title;
     ImageView images;
     TextView game;
