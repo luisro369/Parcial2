@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity
     public static String gameStk,desciptionStk,bodyStk,imagenStk;
     //---------------TopPlayers--------------------
     public static ArrayList<Players> players_list = new ArrayList<>();
-    public static String avatarSTK,idStk,nameStk,biografiaStk,gameStkP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
