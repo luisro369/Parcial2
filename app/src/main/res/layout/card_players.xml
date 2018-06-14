@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@color/colorPrimarySuperLight"
+    >
+
+
+<LinearLayout
+    android:layout_weight="1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+
+    <ImageView
+        android:layout_margin="4dp"
+        android:id="@+id/player_avatar"
+        android:layout_width="130dp"
+        android:layout_height="100dp"
+        android:src="@drawable/kratos"
+        android:scaleType="fitXY"
+        android:scaleX="1"
+        android:scaleY="1"
+        />
+    <TextView
+        android:id="@+id/player_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player name"
+        android:textSize="20sp"
+        android:layout_margin="4sp"
+        android:textColor="#000"/>
+</LinearLayout>
+
+<LinearLayout
+    android:layout_weight="1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/player_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre del juego"
+        android:layout_margin="4sp"
+        android:textColor="#000"/>
+
+
+
+
+    <TextView
+        android:id="@+id/player_biografia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="aca va toda la casaca de la bibliorafia del player"
+        android:layout_margin="4sp"
+        android:textColor="#000"
+        />
+
+</LinearLayout>
+
+</LinearLayout>
+

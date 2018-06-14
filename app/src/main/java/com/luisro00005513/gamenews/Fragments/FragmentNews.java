@@ -154,7 +154,6 @@ public class FragmentNews extends Fragment {
                 }//for
                 //llamada para poder desplegar cardviews
                 getPlayers();
-                CreandoCardViews();
             }
 
             @Override
@@ -183,6 +182,7 @@ public class FragmentNews extends Fragment {
                     //llenando lista
                     players_list.add(new Players(avatar,id,name,biografia,game));//arreglo para players
 
+                    CreandoCardViews();
                 }//for
 
             }

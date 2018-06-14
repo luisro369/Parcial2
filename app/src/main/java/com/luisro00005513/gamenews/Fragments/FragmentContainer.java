@@ -42,7 +42,6 @@ public class FragmentContainer extends Fragment {
         final FragmentPagerAdapter adapter = new FragmentPagerAdapter(getChildFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        //metodo para llenar general con la info perro
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
