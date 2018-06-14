@@ -24,10 +24,11 @@ public class MainActivity extends AppCompatActivity
         NavigationView.OnNavigationItemSelectedListener {
 
     //--------------variables globales entre clases(esto sustituye al bundle)------
-    //---------------Generals--------------------
+    //---------------variables globales para Generals--------------------
     public static String gameStk,desciptionStk,bodyStk,imagenStk;
-    //---------------TopPlayers--------------------
+    //---------------variables globales para TopPlayers--------------------
     public static ArrayList<Players> players_list = new ArrayList<>();
+    //---------------variables globales para Images--------------------
     public static ArrayList<News> news_lists = new ArrayList<>();
 
     @Override
