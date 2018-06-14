@@ -25,9 +25,7 @@ import static com.luisro00005513.gamenews.Activities.MainActivity.players_list;
 
 public class TopPlayers extends Fragment {
 
-    //TextView idTv,nameTv,bioTv,gameTv;
-    //ImageView avatarV;
-    String imagen;
+
     RecyclerView recyclerView;
     ArrayList<Players> listaAux = new ArrayList<>();
 

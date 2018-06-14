@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.luisro00005513.gamenews.Classes.News;
 import com.luisro00005513.gamenews.Classes.Players;
 import com.luisro00005513.gamenews.R;
 
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity
     public static String gameStk,desciptionStk,bodyStk,imagenStk;
     //---------------TopPlayers--------------------
     public static ArrayList<Players> players_list = new ArrayList<>();
+    public static ArrayList<News> news_lists = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -31,6 +31,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.luisro00005513.gamenews.Activities.MainActivity.news_lists;
 import static com.luisro00005513.gamenews.Activities.MainActivity.players_list;
 
 
@@ -151,6 +152,7 @@ public class FragmentNews extends Fragment {
                     String game = response.body().get(i).getGame();
                     //news_list.add(new News(titulo,game,imagen));//arreglo para cardviews
                     news_list.add(new News(id,titulo,body,game,date,imagen,description));//arreglo para noticia
+                    news_lists.add(new News(id,titulo,body,game,date,imagen,description));//arreglo global de noticia
                 }//for
                 //llamada para poder desplegar cardviews
                 getPlayers();
