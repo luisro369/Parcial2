@@ -139,7 +139,7 @@ public class FragmentNews extends Fragment {
             @Override
             public void onResponse(Call<List<News>> call, Response<List<News>> response) {
                 Toast.makeText(getContext(),"Conexion exitosa",Toast.LENGTH_SHORT).show();
-                for(int i = 0; i < 10; i++) {
+                for(int i = 0; i < response.body().size(); i++) {
                     //Noticia completa
                     String id = response.body().get(i).getId();
                     String imagen = response.body().get(i).getCoverImage();
@@ -172,7 +172,7 @@ public class FragmentNews extends Fragment {
             @Override
             public void onResponse(Call<List<Players>> call, Response<List<Players>> response) {
                 Toast.makeText(getContext(),"Exito extrayendo players",Toast.LENGTH_SHORT).show();
-                for(int i = 0; i < 10; i++) {
+                for(int i = 0; i < response.body().size(); i++) {
                     //Noticia completa
                     String avatar = response.body().get(i).getAvatar();
                     String id = response.body().get(i).getId();
