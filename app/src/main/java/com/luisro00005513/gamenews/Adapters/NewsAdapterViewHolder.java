@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.luisro00005513.gamenews.Classes.News;
 import com.luisro00005513.gamenews.Classes.Players;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 
 import static com.luisro00005513.gamenews.Activities.MainActivity.bodyStk;
 import static com.luisro00005513.gamenews.Activities.MainActivity.desciptionStk;
+import static com.luisro00005513.gamenews.Activities.MainActivity.favorite_news;
 import static com.luisro00005513.gamenews.Activities.MainActivity.gameStk;
 import static com.luisro00005513.gamenews.Activities.MainActivity.imagenStk;
 
@@ -53,8 +55,10 @@ class NewsAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnCl
 
     @Override
     public void onClick(View v) {
+        Toast.makeText(context,"Noticia añadida a favoritos",Toast.LENGTH_SHORT).show();
         int position = getAdapterPosition();
         News news = this.lista_completa.get(position);
+        favorite_news.add(this.lista_completa.get(position));
         //al dar click setear variables globales con los  valores recogidos
         //------------generals---------------
         gameStk = news.getGame();

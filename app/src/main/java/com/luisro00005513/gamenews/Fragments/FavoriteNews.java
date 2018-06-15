@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import com.luisro00005513.gamenews.Adapters.FavoriteAdapter;
 import com.luisro00005513.gamenews.Adapters.ImagesAdapter;
 import com.luisro00005513.gamenews.R;
 
+import static com.luisro00005513.gamenews.Activities.MainActivity.favorite_news;
 import static com.luisro00005513.gamenews.Activities.MainActivity.news_lists;
 
 /**
@@ -37,7 +39,8 @@ public class FavoriteNews extends Fragment {
 
         recyclerView = (RecyclerView)view.findViewById(R.id.recycler_favorites);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        FavoriteAdapter favoriteAdapter  = new FavoriteAdapter(getContext(),news_lists);
+        //recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.GAP_HANDLING_NONE));
+        FavoriteAdapter favoriteAdapter  = new FavoriteAdapter(getContext(),favorite_news);
         recyclerView.setAdapter(favoriteAdapter);
 
         return view;

@@ -18,7 +18,6 @@ import com.luisro00005513.gamenews.Fragments.FavoriteNews;
 import com.luisro00005513.gamenews.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity
